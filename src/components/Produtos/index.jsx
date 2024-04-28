@@ -8,7 +8,9 @@ const Produtos = () => {
   const { carrinho, setCarrinho } = useContext(CarrinhoContext);
 
   function adicionarProduto(novoProduto) {
-    const temOProduto = carrinho.some((itemDoCarrinho) => { itemDoCarrinho.id === novoProduto.id });
+    const temOProduto = carrinho.some((itemDoCarrinho) => { 
+      itemDoCarrinho.id === novoProduto.id 
+    });
 
     if (!temOProduto) {
       novoProduto.quantidade = 1;
@@ -26,6 +28,27 @@ const Produtos = () => {
       })
     );
   }
+
+  // function removerProduto(id) {
+
+  //   const produto = carrinho.find((itemDoCarrinho) => itemDoCarrinho.id === id);
+
+  //   const ehOUltimo = produto.quantidade === 1;
+
+  //   if (ehOUltimo) {
+  //     return setCarrinho((carrinhoAnterior) => 
+  //       carrinhoAnterior.filter((itemDoCarrinho) => 
+  //         itemDoCarrinho.id !== id) 
+  //     );
+  //   }
+
+  //   setCarrinho((carrinhoAnterior) =>
+  //     carrinhoAnterior.map((itemDoCarrinho) => {
+  //       if (itemDoCarrinho.id === id) itemDoCarrinho.quantidade -= 1;
+  //       return itemDoCarrinho;
+  //     })
+  //   );
+  // }
 
   return (
     <section role="produtos" aria-label="Produtos que estão bombando!">
